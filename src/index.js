@@ -9,7 +9,7 @@ const callback = (mutationList, observer) => {
   for (const mutation of mutationList) {
     if (mutation.type === "childList") {
       for (const nodeItem of mutation.removedNodes) {
-        if (nodeItem.className.includes("t-inputpromocode")) {
+        if (nodeItem.className?.includes("t-inputpromocode")) {
           const cb = window.__shPromocodeCallback;
 
           if (!cb) {
