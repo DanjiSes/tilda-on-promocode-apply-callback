@@ -18,7 +18,7 @@ const callback = (mutationList, observer) => {
             );
           }
 
-          cb();
+          return cb();
         }
       }
     }
