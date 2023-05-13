@@ -8,10 +8,19 @@ const config = { attributes: false, childList: true, subtree: true };
 const callback = (mutationList, observer) => {
   for (const mutation of mutationList) {
     if (mutation.type === "childList") {
-      console.log(
-        "A child node has been added or removed.",
-        mutation.removedNodes
-      );
+      for (const nodeItem of mutation.removedNodes) {
+        if (nodeItem.className.includes("t-inputpromocode")) {
+          const cb = window.__shPromocodeCallback;
+
+          if (!cb) {
+            throw new Error(
+              "Переменная window.__shPromocodeCallback не найденна"
+            );
+          }
+
+          cb();
+        }
+      }
     }
   }
 };
