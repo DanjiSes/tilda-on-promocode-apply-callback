@@ -18,7 +18,9 @@ const callback = (mutationList, observer) => {
             );
           }
 
-          return cb();
+          const promoCode = nodeItem.value;
+
+          return cb(promoCode);
         }
       }
     }
